@@ -1,5 +1,6 @@
 import { resolveAppConfig } from "./config.mjs";
 import { createNavigationButtons, createFeatureCard } from "./fieldwise-ui.mjs";
+import "./accessibility.mjs";
 
 const params = new URLSearchParams(location.search);
 const appId = params.get("app") || "core";

@@ -9,6 +9,7 @@
   <title>FieldWise Education</title>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <section id="auth-root" class="auth-shell">
     <div class="auth-brand"><div class="brand-icon">FW</div><small>FIELDWISE EDUCATION</small><h1>FieldWise Biology</h1><p>Investigate places, environments and change with field-ready tools.</p></div>
     <div class="auth-panel">
@@ -28,8 +29,8 @@
       <nav id="nav" aria-label="Primary navigation"></nav>
       <div class="profile"><div id="profile-avatar" class="avatar">S</div><div><strong id="profile-name">Student workspace</strong><span id="profile-role">Offline ready</span></div><button id="sign-out" class="profile-sign-out" type="button">Sign out</button></div>
     </aside>
-    <main>
-      <header class="topbar"><div><span class="status-dot"></span> Saved on this device</div><button class="secondary">Help & accessibility</button></header>
+    <main id="main-content" tabindex="-1">
+      <header class="topbar"><div><span class="status-dot"></span> Saved on this device</div><button id="accessibility-button" class="secondary" type="button">Help & accessibility</button></header>
       <section class="hero">
         <div><p id="eyebrow" class="eyebrow"></p><h2 id="page-title"></h2><p id="welcome" class="lede"></p></div>
         <div class="hero-orbit" aria-hidden="true"><span>FIELD</span><strong>WISE</strong></div>
@@ -37,6 +38,15 @@
       <section id="cards" class="card-grid" aria-live="polite"></section>
     </main>
   </div>
+  <dialog id="accessibility-dialog" aria-labelledby="accessibility-title">
+    <form method="dialog" class="accessibility-panel">
+      <button class="dialog-close" value="close" aria-label="Close accessibility settings">Close</button>
+      <h2 id="accessibility-title">Help & accessibility</h2>
+      <p>Use Tab and Shift+Tab to move between controls. Press Enter or Space to activate them, and Escape to close this panel.</p>
+      <label class="check-field"><input name="largeText" type="checkbox"> Use larger text</label>
+      <label class="check-field"><input name="highContrast" type="checkbox"> Use higher contrast</label>
+    </form>
+  </dialog>
   <script type="module" src="app.mjs"></script>
 </body>
 </html>
