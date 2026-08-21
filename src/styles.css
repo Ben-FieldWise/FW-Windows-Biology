@@ -85,4 +85,11 @@ main { min-width:0; }
 .auth-panel form p { margin:0; color:#69665f; font-size:13px; text-align:center; }
 .form-error { min-height:20px; margin-top:16px; color:#a22b25; }
 .profile-sign-out { margin-left:auto; border:0; color:white; background:transparent; text-decoration:underline; cursor:pointer; }
+.check-field { display:flex; flex-direction:row; align-items:center; gap:10px; margin-top:12px; }
+.check-field input { width:18px; height:18px; margin:0; }
+.biology-form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:14px 0 20px; }
+.biology-form textarea,.biology-form button,.biology-form .check-field { grid-column:1/-1; }
+.portfolio-summary { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.portfolio-summary article { display:grid; gap:4px; padding:16px; border-radius:12px; background:#e8efe9; }
+.portfolio-summary strong { color:var(--accent-dark); font-size:26px; }
 @media (max-width:860px) { .auth-shell { grid-template-columns:1fr; } .auth-brand { min-height:240px; padding:40px; } .auth-panel { margin:32px auto; } }
