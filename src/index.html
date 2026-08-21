@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'">
+  <link rel="stylesheet" href="platform-ui.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>FieldWise Education</title>
+</head>
+<body>
+  <section id="auth-root" class="auth-shell">
+    <div class="auth-brand"><div class="brand-icon">FW</div><small>FIELDWISE EDUCATION</small><h1>FieldWise Biology</h1><p>Investigate places, environments and change with field-ready tools.</p></div>
+    <div class="auth-panel">
+      <p class="eyebrow">WELCOME</p><h2>Choose your workspace</h2>
+      <div class="role-picker"><button id="teacher-role" class="active" type="button">Teacher</button><button id="student-role" type="button">Student</button></div>
+      <form id="teacher-form"><label>Email<input name="email" type="email" autocomplete="email" required></label><label>Password<input name="password" type="password" autocomplete="current-password" required></label><button class="primary" type="submit">Sign in</button><p>Teacher accounts and classes are created in FieldWise Core.</p></form>
+      <form id="student-form" hidden><label>Class code<input name="classCode" autocomplete="off" maxlength="12" required></label><label>First name<input name="firstName" autocomplete="given-name" required></label><label>Year level<select name="yearLevel" required></select></label><button class="primary" type="submit">Join class</button><p>No email or birthdate is required.</p></form>
+      <div id="auth-error" class="form-error" role="alert"></div>
+    </div>
+  </section>
+  <div id="app-shell" class="app-shell" hidden>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">FW</div>
+        <div><small>FIELDWISE EDUCATION</small><h1 id="app-title"></h1></div>
+      </div>
+      <nav id="nav" aria-label="Primary navigation"></nav>
+      <div class="profile"><div id="profile-avatar" class="avatar">S</div><div><strong id="profile-name">Student workspace</strong><span id="profile-role">Offline ready</span></div><button id="sign-out" class="profile-sign-out" type="button">Sign out</button></div>
+    </aside>
+    <main>
+      <header class="topbar"><div><span class="status-dot"></span> Saved on this device</div><button class="secondary">Help & accessibility</button></header>
+      <section class="hero">
+        <div><p id="eyebrow" class="eyebrow"></p><h2 id="page-title"></h2><p id="welcome" class="lede"></p></div>
+        <div class="hero-orbit" aria-hidden="true"><span>FIELD</span><strong>WISE</strong></div>
+      </section>
+      <section id="cards" class="card-grid" aria-live="polite"></section>
+    </main>
+  </div>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>

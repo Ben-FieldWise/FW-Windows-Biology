@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "appId": "biology",
+  "phase": 6,
+  "engineeringStatus": "complete",
+  "automatedGates": {
+    "unitAndContractTests": "required",
+    "syntaxChecks": "required",
+    "productionAudit": "required",
+    "cleanDiff": "required",
+    "windowsPackagingWorkflow": "required"
+  },
+  "verifiedCapabilities": [
+    "offline-inquiry",
+    "weather",
+    "measurements",
+    "camera",
+    "location",
+    "exports",
+    "encrypted-core-handoff",
+    "windows-installer"
+  ],
+  "externalApprovalGates": [
+    {
+      "id": "signed-windows-installer",
+      "status": "pending",
+      "evidenceRequired": true
+    },
+    {
+      "id": "windows-11-device-matrix",
+      "status": "pending",
+      "evidenceRequired": true
+    },
+    {
+      "id": "school-field-pilot",
+      "status": "pending",
+      "evidenceRequired": true
+    },
+    {
+      "id": "wcag-manual-audit",
+      "status": "pending",
+      "evidenceRequired": true
+    },
+    {
+      "id": "privacy-review",
+      "status": "pending",
+      "evidenceRequired": true
+    },
+    {
+      "id": "field-safety-review",
+      "status": "pending",
+      "evidenceRequired": true
+    }
+  ],
+  "productionReleaseDecision": "not-approved"
+}

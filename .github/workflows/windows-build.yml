@@ -1,0 +1,40 @@
+name: Windows build
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, codex/windows-foundation]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test-and-package:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm audit --omit=dev
+      - run: npm run build:windows
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"
+      - name: Write build provenance
+        run: node scripts/write-build-provenance.cjs release-candidate.json dist/biology/BUILD_PROVENANCE.json
+      - name: Write SHA-256 checksums
+        shell: pwsh
+        run: Get-ChildItem 'dist/biology' -File | Where-Object { $_.Name -ne 'SHA256SUMS.txt' } | Get-FileHash -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  $(Split-Path $_.Path -Leaf)" } | Set-Content 'dist/biology/SHA256SUMS.txt'
+      - name: Verify release candidate artifact
+        run: npm run verify:release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FieldWise-Biology-Windows
+          path: |
+            dist/biology/*
+            release-candidate.json
+            RELEASE_CANDIDATE.md
+          if-no-files-found: error
+          retention-days: 14

@@ -1,0 +1,25 @@
+{
+  "name": "fw-windows-biology",
+  "version": "0.7.0-rc.2",
+  "private": true,
+  "description": "FieldWise Biology for Windows",
+  "author": "FieldWise Education",
+  "fieldwiseApp": "biology",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "electron .",
+    "build:windows": "electron-builder --win --x64 --publish never --config electron-builder.json",
+    "verify:release": "node scripts/verify-release-artifacts.cjs release-candidate.json dist/biology",
+    "test": "node --test tests/*.test.mjs tests/*.test.cjs"
+  },
+  "devDependencies": {
+    "electron": "37.10.3",
+    "electron-builder": "26.15.3"
+  },
+  "allowScripts": {
+    "electron@37.10.3": true
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.112.3"
+  }
+}

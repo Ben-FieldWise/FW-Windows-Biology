@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "appId": "biology",
+  "productName": "FieldWise Biology",
+  "version": "0.7.0-rc.2",
+  "channel": "release-candidate",
+  "platform": "windows",
+  "architecture": [
+    "x64"
+  ],
+  "provenanceFile": "BUILD_PROVENANCE.json",
+  "installer": {
+    "format": "nsis",
+    "artifactName": "FieldWise-Biology-Windows-0.7.0-rc.2-Setup.exe",
+    "checksumFile": "SHA256SUMS.txt",
+    "signed": false
+  },
+  "protocol": "fieldwise-biology",
+  "companionApps": [
+    "core"
+  ],
+  "productionApproved": false
+}
