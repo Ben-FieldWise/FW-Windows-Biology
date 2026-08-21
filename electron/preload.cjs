@@ -1,6 +1,7 @@
 const { contextBridge, ipcRenderer } = require("electron");
 // Sandboxed preloads may only require Electron and a small Node.js allow-list.
 // Keep this bridge self-contained so packaged builds expose it reliably.
+contextBridge.exposeInMainWorld("fieldwiseMigration", Object.freeze({ migrateInvestigation:value=>ipcRenderer.invoke("biology:migrate-investigation",value) }));
 const createPlatformBridge = () => Object.freeze({
   platform: process.platform,
   status: () => ipcRenderer.invoke("fieldwise:platform-status"),

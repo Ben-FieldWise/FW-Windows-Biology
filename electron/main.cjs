@@ -64,6 +64,7 @@ ipcMain.handle("biology:sign-out", () => authGateway.signOut());
 ipcMain.handle("biology:take-launch-context",()=>{const value=launchContext;launchContext=null;return value;});
 ipcMain.handle("biology:templates",()=>templates);
 ipcMain.handle("biology:new-investigation",(_event,templateId,context)=>newInvestigation(templateId,context));
+ipcMain.handle("biology:migrate-investigation",(_event,value)=>require("./biology-contracts.cjs").migrateInvestigation(value));
 ipcMain.handle("biology:new-site",(_event,number)=>newSite(number));
 ipcMain.handle("biology:add-measurement",(_event,value)=>addMeasurement({},value));
 ipcMain.handle("biology:record-catalog",()=>({samplingDesigns:biologyRecords.samplingDesigns,nativeStatuses:biologyRecords.nativeStatuses,physiologyProtocols:biologyRecords.physiologyProtocols}));
