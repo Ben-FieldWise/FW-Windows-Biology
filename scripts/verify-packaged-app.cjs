@@ -1,6 +1,6 @@
 const fs=require("node:fs");
 const asar=require("@electron/asar");
-function normalizePackagePath(value){return String(value).replaceAll("\\\\","/").replace(/^\/?/,"/");}
+function normalizePackagePath(value){return String(value).replaceAll("\\","/").replace(/^\/?/,"/");}
 function verifyPackagedApp(archivePath,expectedApp){
   if(!fs.existsSync(archivePath))throw new Error(`Packaged ASAR is missing: ${archivePath}`);
   const entries=new Set(asar.listPackage(archivePath).map(normalizePackagePath));
